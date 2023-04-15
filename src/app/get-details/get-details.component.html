@@ -1,0 +1,38 @@
+<div *ngIf="showTable == false">
+     
+    <h3><strong>{{message}}</strong></h3>
+    <form #myForm="ngForm"  (ngSubmit)="onSubmit(myForm)">
+          <div class="card">
+            <input ngModel type="text" placeholder="Name"  name="name" />
+             <br><br>
+            <input ngModel type="password" name="pass" placeholder="password" />
+            <br><br>
+                 <button class="btn">Get</button>
+    
+          </div>
+    
+    
+        </form>
+
+</div> 
+
+
+<table border="1" *ngIf="showTable == true">
+    <button (click)="logout()">Logout</button>
+    <thead>
+        <th>username</th>
+        <th>password</th>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let cred of creds">
+            <td>
+                  {{cred.username}}
+            </td>
+            <td>
+                {{cred.password}}
+            </td>
+        </tr>
+       
+    </tbody>
+</table>
